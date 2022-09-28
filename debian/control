@@ -1,0 +1,63 @@
+Source: box2d
+Section: libs
+Priority: optional
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Uploaders:
+ Miriam Ruiz <little_miry@yahoo.es>,
+ Barry deFreese <bdefreese@debian.org>,
+ Markus Koschany <apo@debian.org>
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13)
+Build-Depends-Indep:
+ doxygen,
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/games-team/box2d.git
+Vcs-Browser: https://salsa.debian.org/games-team/box2d
+Homepage: http://www.box2d.org/
+
+Package: libbox2d-dev
+Section: libdevel
+Multi-Arch: same
+Architecture: any
+Depends:
+ libbox2d2 (= ${binary:Version}),
+ ${misc:Depends}
+Description: 2D physics engine - development files
+ 2D rigid body simulation library for games. Programmers can use it in
+ their games to make objects move in believable ways and make the world
+ seem more interactive. From the game's point of view a physics engine is
+ just a system for procedural animation. Rather than paying (or begging)
+ an animator to move your actors around, you can let Sir Isaac Newton do
+ the directing.
+ .
+ This package contains the development libraries and headers.
+
+Package: libbox2d-doc
+Section: doc
+Multi-Arch: foreign
+Architecture: all
+Depends:
+ libjs-jquery,
+ ${misc:Depends}
+Description: 2D physics engine - documentation
+ 2D rigid body simulation library for games. Programmers can use it in
+ their games to make objects move in believable ways and make the world
+ seem more interactive.
+ .
+ This package contains the API documentation and the manual.
+
+Package: libbox2d2
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends}
+Description: 2D physics engine
+ 2D rigid body simulation library for games. Programmers can use it in
+ their games to make objects move in believable ways and make the world
+ seem more interactive. From the game's point of view a physics engine is
+ just a system for procedural animation. Rather than paying (or begging)
+ an animator to move your actors around, you can let Sir Isaac Newton do
+ the directing.
+

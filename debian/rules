@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+VER = 2.4.1
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DBOX2D_BUILD_DOCS=ON \
+		-DBOX2D_BUILD_UNIT_TESTS=ON \
+		-DBOX2D_BUILD_TESTBED=OFF \
+		-DBUILD_SHARED_LIBS=ON \
+		-DLIB_SUFFIX=/$(DEB_HOST_MULTIARCH)
+
+override_dh_auto_install:
+	dh_auto_install
+	mkdir -p debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig
+	sed -e 's/\$${DEB_HOST_MULTIARCH}/$(DEB_HOST_MULTIARCH)/' \
+		-e 's/\$${VER}/$(VER)/' \
+		debian/box2d.pc.in > debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig/box2d.pc
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGELOG.md

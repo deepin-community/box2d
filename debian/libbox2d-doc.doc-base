@@ -1,0 +1,9 @@
+Document: box2d
+Title: Box2D API documentation
+Author: Erin Catto
+Abstract: box2d API documentation and manual
+Section: Programming/C++
+
+Format: HTML
+Index: /usr/share/doc/libbox2d-dev/html/index.html
+Files: /usr/share/doc/libbox2d-dev/html/*.html

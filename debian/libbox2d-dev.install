@@ -1,0 +1,4 @@
+usr/include/*
+usr/lib/*/cmake/box2d/*.cmake
+usr/lib/*/libbox2d.so
+usr/lib/*/pkgconfig
